@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fd90ecf4e8e7b4c97465c3562d9295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerhealth
-  healthbar: {fileID: 210222396}
+  healthbar: {fileID: 1712844378}
   health: 100
   damage: 5
 --- !u!1 &464423069
@@ -1782,6 +1782,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1712844378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9110522937907667006, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+  m_PrefabInstance: {fileID: 995468733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797079352
 GameObject:
   m_ObjectHideFlags: 0
