@@ -1,19 +1,15 @@
 using UnityEngine;
 
-public class healthbar : MonoBehaviour
+public class enemyhealthbar : MonoBehaviour
 {
-    bool ifHit = false;
     public float damage = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (collision.CompareTag("canDamageEnemy"))
         {
             float healthDifference = damage / 100;
             transform.localScale = new Vector2(transform.localScale.x - healthDifference, transform.localScale.y);
