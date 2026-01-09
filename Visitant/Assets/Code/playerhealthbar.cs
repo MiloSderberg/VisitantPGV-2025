@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class playerhealthbar : MonoBehaviour
+public class playerhealth : MonoBehaviour
 {
+    //To set up the healthbar, first drag in the PlayerHealthbar prefab and then drag in "RemainingHealth" into the field of "Healthbar"
+    public GameObject healthbar;
+    public float health = 100;
     public float damage = 0;
-    float invincibilityTime = 2;
+    float invincibilityTime = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,14 +18,26 @@ public class playerhealthbar : MonoBehaviour
     {
         invincibilityTime -= Time.deltaTime;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (CompareTag("canDamagePlayer") && invincibilityTime <= 0)
+        if (collision.CompareTag("canHealPlayer"))
         {
+            if (health < 100)
+            {
+                health += 5;
+                float healthDifference = 0.05f;
+                healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x + healthDifference, healthbar.transform.localScale.y);
+                healthbar.transform.position = new Vector3(healthbar.transform.position.x + healthDifference, healthbar.transform.position.y, healthbar.transform.position.z);
+            }
+        }
+        if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
+        {
+            print("hej");
+            health -= damage;
             float healthDifference = damage / 100;
-            transform.localScale = new Vector2(transform.localScale.x - healthDifference, transform.localScale.y);
-            transform.position = new Vector2(transform.position.x - healthDifference, transform.position.y);
-            invincibilityTime = 2;
+            healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x - healthDifference, healthbar.transform.localScale.y);
+            healthbar.transform.position = new Vector3(healthbar.transform.position.x - healthDifference, healthbar.transform.position.y, healthbar.transform.position.z);
+            invincibilityTime = 0.5f;
         }
     }
 }

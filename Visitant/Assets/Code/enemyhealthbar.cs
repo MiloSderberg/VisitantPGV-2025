@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class enemyhealthbar : MonoBehaviour
 {
+    //To set up the healthbar, first drag in the PlayerHealthbar prefab and then drag in "RemainingHealth" into the field of "Healthbar"
+    public GameObject healthbar;
+    public float health = 100;
     public float damage = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,8 +22,9 @@ public class enemyhealthbar : MonoBehaviour
         if (collision.CompareTag("canDamageEnemy"))
         {
             float healthDifference = damage / 100;
-            transform.localScale = new Vector2(transform.localScale.x - healthDifference, transform.localScale.y);
-            transform.position = new Vector2(transform.position.x - healthDifference, transform.position.y);
+            health -= damage;
+            healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x - healthDifference, healthbar.transform.localScale.y);
+            healthbar.transform.position = new Vector3(healthbar.transform.position.x - healthDifference, healthbar.transform.position.y, healthbar.transform.position.z);
         }
     }
 }
