@@ -17,7 +17,7 @@ public class healthbar : MonoBehaviour
         {
             float healthDifference = damage / 100;
             transform.localScale = new Vector2(transform.localScale.x - healthDifference, transform.localScale.y);
-            transform.position = new Vector2(transform.position.x - healthDifference / 2, transform.position.y);
+            transform.position = new Vector2(transform.position.x - healthDifference, transform.position.y);
         }
     }
 }
