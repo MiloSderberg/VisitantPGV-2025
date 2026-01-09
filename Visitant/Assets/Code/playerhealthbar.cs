@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerhealth : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class playerhealth : MonoBehaviour
     void Update()
     {
         invincibilityTime -= Time.deltaTime;
+        if (health == 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
