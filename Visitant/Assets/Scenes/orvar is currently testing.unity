@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerhealth
   healthbar: {fileID: 1170986480}
+  health: 100
 --- !u!1 &464423069
 GameObject:
   m_ObjectHideFlags: 0

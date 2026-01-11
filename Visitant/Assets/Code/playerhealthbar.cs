@@ -6,7 +6,7 @@ public class playerhealth : MonoBehaviour
     //To set up the healthbar, first drag in the PlayerHealthbar prefab and then drag in "RemainingHealth" into the field of "Healthbar"
     public GameObject healthbar;
     float invincibilityTime = 0.5f;
-    float health = 200f;
+    float health = 100;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,9 +26,9 @@ public class playerhealth : MonoBehaviour
     {
         if (collision.CompareTag("canHealPlayer"))
         {
-            if (health < 200)
+            if (health < 100)
             {
-                health += 2f;
+                health += 1f;
                 healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x + 0.02f, healthbar.transform.localScale.y);
                 healthbar.transform.position = new Vector3(healthbar.transform.position.x + 0.02f, healthbar.transform.position.y, healthbar.transform.position.z);
             }
@@ -36,7 +36,7 @@ public class playerhealth : MonoBehaviour
         if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {
             float damage = collision.GetComponent<damageamount>().damage;
-            health -= damage * 2;
+            health -= damage;
             healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x - damage / 50, healthbar.transform.localScale.y);
             healthbar.transform.position = new Vector3(healthbar.transform.position.x - damage / 50, healthbar.transform.position.y, healthbar.transform.position.z);
             invincibilityTime = 0.5f;
