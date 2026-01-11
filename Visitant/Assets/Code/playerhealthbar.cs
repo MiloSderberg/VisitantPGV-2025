@@ -5,9 +5,8 @@ public class playerhealth : MonoBehaviour
 {
     //To set up the healthbar, first drag in the PlayerHealthbar prefab and then drag in "RemainingHealth" into the field of "Healthbar"
     public GameObject healthbar;
-    public float health = 100;
-    public float damage = 0;
     float invincibilityTime = 0.5f;
+    float health = 200f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,30 +17,28 @@ public class playerhealth : MonoBehaviour
     void Update()
     {
         invincibilityTime -= Time.deltaTime;
-        if (health == 0)
+        if (health <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("GameOver");
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("canHealPlayer"))
         {
-            if (health < 100)
+            if (health < 200)
             {
-                health += 5;
-                float healthDifference = 0.05f;
-                healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x + healthDifference, healthbar.transform.localScale.y);
-                healthbar.transform.position = new Vector3(healthbar.transform.position.x + healthDifference, healthbar.transform.position.y, healthbar.transform.position.z);
+                health += 2f;
+                healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x + 0.02f, healthbar.transform.localScale.y);
+                healthbar.transform.position = new Vector3(healthbar.transform.position.x + 0.02f, healthbar.transform.position.y, healthbar.transform.position.z);
             }
         }
         if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {
-            print("hej");
-            health -= damage;
-            float healthDifference = damage / 100;
-            healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x - healthDifference, healthbar.transform.localScale.y);
-            healthbar.transform.position = new Vector3(healthbar.transform.position.x - healthDifference, healthbar.transform.position.y, healthbar.transform.position.z);
+            float damage = collision.GetComponent<damageamount>().damage;
+            health -= damage * 2;
+            healthbar.transform.localScale = new Vector2(healthbar.transform.localScale.x - damage / 50, healthbar.transform.localScale.y);
+            healthbar.transform.position = new Vector3(healthbar.transform.position.x - damage / 50, healthbar.transform.position.y, healthbar.transform.position.z);
             invincibilityTime = 0.5f;
         }
     }
