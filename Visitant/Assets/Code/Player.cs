@@ -130,7 +130,11 @@ public class Player : MonoBehaviour
         }
 
         // Camera
-
+        float cameraX = cam.ScreenToWorldPoint(Input.mousePosition).x;
+        float cameraY = cam.ScreenToWorldPoint(Input.mousePosition).y;
+        Vector3 cam2 = new Vector3(cameraX, cameraY, 0);
+        direction = (cam2 - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     }
 
     // Health
