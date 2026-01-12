@@ -17,9 +17,9 @@ public class playerhealth : MonoBehaviour
     void Update()
     {
         invincibilityTime -= Time.deltaTime;
-//        if (health <= 0)
+        if (health <= 0)
         {
-//            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

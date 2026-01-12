@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: dc293652883025343a465f09cc46e9aa
+  - enabled: 1
+    path: Assets/Scenes/orvar is currently testing.unity
+    guid: 772da9af29a6ed64b943f5d1d6de210e
+  - enabled: 1
+    path: Assets/Scenes/otis test.unity
+    guid: 2c7f672a05f7f8a488ce75f9e274272d
+  - enabled: 1
+    path: Assets/Scenes/Room01.unity
+    guid: 6f52241a1fd738f4d888a9a448d0e33c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
