@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Health
     public GameObject healthBar;
     public AudioClip hurtSound;
-    public float health;
+    float health;
     public float invincibilityTime;
     // Dash
     public KeyCode dashButton;
@@ -128,6 +128,9 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+
+        // Camera
+
     }
 
     // Health
