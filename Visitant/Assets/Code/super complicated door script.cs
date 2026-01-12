@@ -4,7 +4,7 @@ public class supercomplicateddoorscript : MonoBehaviour
 {
     Animator animator;
     Collider2D collider;
-    float opentime = 2f;
+    float opentime = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +19,7 @@ public class supercomplicateddoorscript : MonoBehaviour
         {
             animator.SetBool("open", false);
             collider.isTrigger = false;
+            opentime = 2;
         }
         if (opentime < 2)
         {
@@ -27,8 +28,11 @@ public class supercomplicateddoorscript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        animator.SetBool("open", true);
-        opentime -= Time.deltaTime;
-        collider.isTrigger = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("open", true);
+            opentime -= Time.deltaTime;
+            collider.isTrigger = true;
+        }
     }
 }
