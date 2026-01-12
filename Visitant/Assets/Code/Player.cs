@@ -1,12 +1,15 @@
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    bool isCounting = false;
     Collider2D playerCollider;
     public LayerMask groundLayerMask;
     Vector2 direction;
@@ -28,8 +31,12 @@ public class Player : MonoBehaviour
     // Dash
     public KeyCode dashButton;
     public float dashLength;
+    public float dashSpeed;
     public float dashCooldown;
     float dashTimer;
+    float dashTimer2;
+    public GameObject dashPrefab;
+    GameObject spawnedDash;
 
     // Start is called before the first frame update
     void Start()
@@ -80,13 +87,24 @@ public class Player : MonoBehaviour
             float rad = snappedAngle * Mathf.Deg2Rad;
             Vector2 snappedDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
-            /*
-            if (snappedDirection.x > 0) snappedDirection.x += dashLength;
-            else snappedDirection.x -= dashLength;
-            direction = direction + snappedDirection;
+            Vector2 pos = transform.position;
+            spawnedDash = Instantiate(dashPrefab, pos, transform.rotation);
+            Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
+            rbD.linearVelocity = snappedDirection * dashLength;
+            isCounting = true;
+            dashTimer2 = dashSpeed;
             dashTimer = dashCooldown;
-            */
+            
         }
+
+        if (isCounting == true) dashTimer2 -= Time.deltaTime;
+        if (isCounting == true && dashTimer2 <= 0)
+        {
+            transform.position = spawnedDash.transform.position;
+            Destroy(spawnedDash);
+            isCounting = false;
+        }
+
         if (moving != true) direction.x = direction.x * friction;
         rb.linearVelocity = direction;
         moving = false;
