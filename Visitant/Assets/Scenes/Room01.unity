@@ -155,20 +155,19 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  gameOverSceneName: GameOver
   mapWidth: 50
   jumpPower: 15
   speed: 0.25
   speedLimit: 10
   friction: 0.98
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2097061739}
   hurtSound: {fileID: 0}
-  health: 1
-  dashButton: 0
-  dashLength: 500000000
-  dashSpeed: 0
+  invincibilityTime: 0
+  dashButton: 304
+  dashLength: 10
+  dashSpeed: 0.5
   dashCooldown: 3
-  dashPrefab: {fileID: 0}
+  dashPrefab: {fileID: 1077563523034694035, guid: eb95b37d0a0dbf145b8a9d013c099125, type: 3}
 --- !u!50 &219949281
 Rigidbody2D:
   serializedVersion: 5
@@ -924,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::damageamount
-  damage: 15
+  damage: 5
 --- !u!1 &1215908290
 GameObject:
   m_ObjectHideFlags: 0
