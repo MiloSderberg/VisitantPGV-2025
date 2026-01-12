@@ -132,10 +132,9 @@ GameObject:
   - component: {fileID: 210222399}
   - component: {fileID: 210222398}
   - component: {fileID: 210222397}
-  - component: {fileID: 210222402}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,18 +154,21 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  gameOverSceneName: Game
+  gameOverSceneName: GameOver
   mapWidth: 50
   jumpPower: 15
   speed: 0.25
   speedLimit: 10
   friction: 0.98
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1170986480}
   hurtSound: {fileID: 0}
-  health: 1
+  health: 100
+  invincibilityTime: 0
   dashButton: 0
   dashLength: 0
+  dashSpeed: 0
   dashCooldown: 0
+  dashPrefab: {fileID: 0}
 --- !u!50 &210222398
 Rigidbody2D:
   serializedVersion: 5
@@ -302,23 +304,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 464423070}
-  - {fileID: 536233299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &210222402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210222396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fd90ecf4e8e7b4c97465c3562d9295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerhealth
-  healthbar: {fileID: 1170986480}
-  health: 100
 --- !u!1 &464423069
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,11 +416,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &536233299 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
-  m_PrefabInstance: {fileID: 915111608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850691936
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,23 +696,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 210222401}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2175,3 +2157,4 @@ SceneRoots:
   - {fileID: 210222401}
   - {fileID: 1107002021}
   - {fileID: 1546558812}
+  - {fileID: 915111608}

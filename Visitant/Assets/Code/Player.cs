@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public LayerMask groundLayerMask;
     Vector2 direction;
     AudioSource audioSource;
-    public string gameOverSceneName;
     bool moving = false;
     bool hasJumpedTwize = false;
     Camera cam;
@@ -96,7 +95,7 @@ public class Player : MonoBehaviour
             isCounting = true;
             dashTimer2 = dashSpeed;
             dashTimer = dashCooldown;
-            
+
         }
 
         if (isCounting == true) dashTimer2 -= Time.deltaTime;
@@ -124,6 +123,10 @@ public class Player : MonoBehaviour
             float camZ = cam.transform.position.z;
             camX = camX * -1;
             cam.transform.position = new Vector3(camX, camY, camZ);
+        }
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 
