@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     public AudioClip hurtSound;
     public float health;
+    public float invincibilityTime;
     // Dash
     public KeyCode dashButton;
     public float dashLength;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         dashTimer -= Time.deltaTime;
+        invincibilityTime -= Time.deltaTime;
         // Movement
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -126,16 +128,24 @@ public class Player : MonoBehaviour
     }
 
     // Health
-    public void pHurt(float damage)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (audioSource != null && hurtSound != null)
+        if (collision.CompareTag("canHealPlayer"))
         {
-            audioSource.PlayOneShot(hurtSound);
+            if (health < 100)
+            {
+                health += 1f;
+                healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x + 0.02f, healthBar.transform.localScale.y);
+                healthBar.transform.position = new Vector3(healthBar.transform.position.x + 0.02f, healthBar.transform.position.y, healthBar.transform.position.z);
+            }
         }
-        health -= damage;
-        if (health <= 0)
+        if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {
-            SceneManager.LoadScene(gameOverSceneName);
+            float damage = collision.GetComponent<damageamount>().damage;
+            health -= damage;
+            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - damage / 50, healthBar.transform.localScale.y);
+            healthBar.transform.position = new Vector3(healthBar.transform.position.x - damage / 50, healthBar.transform.position.y, healthBar.transform.position.z);
+            invincibilityTime = 0.5f;
         }
     }
 
