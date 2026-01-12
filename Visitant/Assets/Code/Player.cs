@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     bool hasJumpedTwize = false;
     Camera cam;
     public float mapWidth;
+    bool withinCamWorldX;
+    bool withinCamWorldY;
     // Movement
     public float jumpPower;
     public float speed;
@@ -135,14 +137,20 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
+    }
+    private void FixedUpdate()
+    {
         // Camera
+        float camX = cam.transform.position.x;
+        float camY = cam.transform.position.y;
+        float camZ = cam.transform.position.z;
+
         Vector3 playerPos = transform.position;
         Vector3 cameraPos = cam.transform.position;
         Vector2 camMover = transform.position - cameraPos;
-        camMover = camMover / 100;
-        camX += camMover.x;
-        camY += camMover.y;
+        camMover = camMover / 12.5f;
+        if (withinCamWorldX == true) camX += camMover.x;
+        if (withinCamWorldY == true) camY += camMover.y;
         cam.transform.position = new Vector3(camX, camY, -10);
     }
 
@@ -166,6 +174,16 @@ public class Player : MonoBehaviour
             healthBar.transform.position = new Vector3(healthBar.transform.position.x - damage / 50, healthBar.transform.position.y, healthBar.transform.position.z);
             invincibilityTime = 0.5f;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = true;
+        if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = false;
+        if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = false;
     }
 
     // Teacher made code, I just barley know how it works.

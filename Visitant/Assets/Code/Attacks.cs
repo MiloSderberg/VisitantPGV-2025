@@ -55,16 +55,15 @@ public class Attacks : MonoBehaviour
         }
     }
 
-    // ChatGPT snapping code, as I've spend way to much time on this issue.
     Vector2 Snap16Direction(Vector2 direction)
     {
-        // Convert direction → angle in degrees
+        // Convert direction to angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Snap angle to nearest 22.5°
         float snappedAngle = Mathf.Round(angle / 22.5f) * 22.5f;
 
-        // Convert back to unit vector
+        // Convert back to vector3
         float rad = snappedAngle * Mathf.Deg2Rad;
         return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
     }
