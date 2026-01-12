@@ -302,7 +302,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 464423070}
-  - {fileID: 995468734}
+  - {fileID: 536233299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &210222402
@@ -317,9 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fd90ecf4e8e7b4c97465c3562d9295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerhealth
-  healthbar: {fileID: 1712844378}
+  healthbar: {fileID: 1170986480}
   health: 100
-  damage: 5
 --- !u!1 &464423069
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +429,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &536233299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+  m_PrefabInstance: {fileID: 915111608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850691936
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +708,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &995468733
+--- !u!1001 &915111608
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -722,11 +726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.021800518
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4323688
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -762,18 +766,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5595923559854779006, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_Name
-      value: PlayerHealthbar 1
+      value: Healthbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
---- !u!4 &995468734 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
-  m_PrefabInstance: {fileID: 995468733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035825311
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +921,7 @@ GameObject:
   - component: {fileID: 1107002021}
   - component: {fileID: 1107002020}
   - component: {fileID: 1107002019}
+  - component: {fileID: 1107002022}
   m_Layer: 0
   m_Name: Square
   m_TagString: canDamagePlayer
@@ -1048,6 +1048,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107002022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107002018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::damage
+  damage: 10
+--- !u!1 &1170986480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9110522937907667006, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+  m_PrefabInstance: {fileID: 915111608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1260277838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,11 +1800,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1712844378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9110522937907667006, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
-  m_PrefabInstance: {fileID: 995468733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797079352
 GameObject:
   m_ObjectHideFlags: 0
