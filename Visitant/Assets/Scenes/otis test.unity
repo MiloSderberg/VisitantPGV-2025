@@ -155,7 +155,6 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  gameOverSceneName: GameOver
   mapWidth: 50
   jumpPower: 15
   speed: 0.25
@@ -163,7 +162,7 @@ MonoBehaviour:
   friction: 0.98
   healthBar: {fileID: 0}
   hurtSound: {fileID: 0}
-  health: 1
+  invincibilityTime: 0
   dashButton: 0
   dashLength: 500000000
   dashSpeed: 0
@@ -704,6 +703,7 @@ GameObject:
   - component: {fileID: 652181101}
   - component: {fileID: 652181100}
   - component: {fileID: 652181099}
+  - component: {fileID: 652181103}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -835,6 +835,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652181103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652181098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc4509507459d140b564c1d6f338722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyhealthbar
+  healthbar: {fileID: 5595923559854779006, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+  health: 10
 --- !u!1 &685575446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8793251099959273150, guid: 97e7c5f4c88d4bb45940654365da315e, type: 3}
