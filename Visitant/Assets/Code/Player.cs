@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Health
     public GameObject healthBar;
     public AudioClip hurtSound;
-    float health;
+    float health = 100;
     public float invincibilityTime;
     // Dash
     public KeyCode dashButton;
@@ -53,6 +53,9 @@ public class Player : MonoBehaviour
     {
         dashTimer -= Time.deltaTime;
         invincibilityTime -= Time.deltaTime;
+        float camX = cam.transform.position.x;
+        float camY = cam.transform.position.y;
+        float camZ = cam.transform.position.z;
         // Movement
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -115,13 +118,17 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Vector2 dimPosition = transform.position;
-            if (dimPosition.x > 0) dimPosition.x = dimPosition.x - mapWidth;
-            else dimPosition.x = dimPosition.x + mapWidth;
+            if (dimPosition.x > 0)
+            {
+                dimPosition.x = dimPosition.x - mapWidth;
+                camX = camX - mapWidth;
+            }
+            else 
+            { 
+            dimPosition.x = dimPosition.x + mapWidth;
+            camX = camX + mapWidth;
+            }
             transform.position = dimPosition;
-            float camX = cam.transform.position.x;
-            float camY = cam.transform.position.y;
-            float camZ = cam.transform.position.z;
-            camX = camX * -1;
             cam.transform.position = new Vector3(camX, camY, camZ);
         }
         if (health <= 0)
@@ -130,11 +137,13 @@ public class Player : MonoBehaviour
         }
 
         // Camera
-        float cameraX = cam.ScreenToWorldPoint(Input.mousePosition).x;
-        float cameraY = cam.ScreenToWorldPoint(Input.mousePosition).y;
-        Vector3 cam2 = new Vector3(cameraX, cameraY, 0);
-        direction = (cam2 - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Vector3 playerPos = transform.position;
+        Vector3 cameraPos = cam.transform.position;
+        Vector2 camMover = transform.position - cameraPos;
+        camMover = camMover / 100;
+        camX += camMover.x;
+        camY += camMover.y;
+        cam.transform.position = new Vector3(camX, camY, -10);
     }
 
     // Health
