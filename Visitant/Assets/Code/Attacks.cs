@@ -30,7 +30,7 @@ public class Attacks : MonoBehaviour
         float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
         Vector3 cam2 = new Vector3(camx, camy, 0);
         direction = (cam2 - transform.position).normalized;
-        Vector2 snappedDirection = Snap32Direction(direction);
+        Vector2 snappedDirection = Snap16Direction(direction);
         transform.up = snappedDirection;
 
         // Gun code 
@@ -56,13 +56,13 @@ public class Attacks : MonoBehaviour
     }
 
     // ChatGPT snapping code, as I've spend way to much time on this issue.
-    Vector2 Snap32Direction(Vector2 direction)
+    Vector2 Snap16Direction(Vector2 direction)
     {
         // Convert direction → angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Snap angle to nearest 11.25°
-        float snappedAngle = Mathf.Round(angle / 11.25f) * 11.25f;
+        // Snap angle to nearest 22.5°
+        float snappedAngle = Mathf.Round(angle / 22.5f) * 22.5f;
 
         // Convert back to unit vector
         float rad = snappedAngle * Mathf.Deg2Rad;

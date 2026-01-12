@@ -164,9 +164,11 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   hurtSound: {fileID: 0}
   health: 1
-  dashButton: 0
-  dashLength: 500000000
+  dashButton: 304
+  dashLength: 10
+  dashSpeed: 0.5
   dashCooldown: 3
+  dashPrefab: {fileID: 1077563523034694035, guid: eb95b37d0a0dbf145b8a9d013c099125, type: 3}
 --- !u!50 &219949281
 Rigidbody2D:
   serializedVersion: 5
@@ -318,8 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerhealth
   healthbar: {fileID: 2097061739}
-  health: 100
-  damage: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 726422249}
   - component: {fileID: 726422248}
   - component: {fileID: 726422247}
+  - component: {fileID: 726422250}
   m_Layer: 0
   m_Name: Square
   m_TagString: canDamagePlayer
@@ -911,6 +912,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726422250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726422246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::damageamount
+  damage: 5
 --- !u!1 &1215908290
 GameObject:
   m_ObjectHideFlags: 0
