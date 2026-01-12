@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5633279300049291793}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: canDamageEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,9 +179,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4581672786560750430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d50c8d7d0c8e6849aa0e41e691f6259, type: 3}
+  m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hurt
-  hurtAmount: 1
-  KillOnDamage: 1
-  Player: 1
+  damage: 1
