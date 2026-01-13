@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bbc2a02be3ff0c041a0cb548556e6291
+guid: 56535970b6d742a46b3910b6c9fc0a62
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sprite-bullet
+  - name: Sprite-bullett
     originalName: 
     pivot: {x: 3.375, y: -2.25}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 4
-    spriteID: 5ddcb06c69af4134485355168e47955a
+    spriteID: 02851ffcebf884b4aa05877cdd8bab01
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3645941450
+      value0: 2318653934
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Sprite-bullet
+    name: Sprite-bullett
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sprite-bullet
+    - name: Sprite-bullett
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 9
         width: 8
         height: 4
-      spriteId: 5ddcb06c69af4134485355168e47955a
+      spriteId: 02851ffcebf884b4aa05877cdd8bab01
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
