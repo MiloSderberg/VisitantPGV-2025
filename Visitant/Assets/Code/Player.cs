@@ -174,12 +174,10 @@ public class Player : MonoBehaviour
             healthBar.transform.position = new Vector3(healthBar.transform.position.x - damage / 50, healthBar.transform.position.y, healthBar.transform.position.z);
             invincibilityTime = 0.5f;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = true;
         if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = true;
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = false;
