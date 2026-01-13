@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             isCounting = true;
             dashTimer2 = dashSpeed;
             dashTimer = dashCooldown;
-
+            invincibilityTime += dashSpeed;
         }
 
         if (isCounting == true) dashTimer2 -= Time.deltaTime;
