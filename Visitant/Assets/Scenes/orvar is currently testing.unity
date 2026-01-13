@@ -1121,13 +1121,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: doorpv
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 0aa3180ff786edd43a05d95cb67818a1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 11990b587c842704e803ab284f585979, type: 2}
     - target: {fileID: 7878350319992209165, guid: 0aa3180ff786edd43a05d95cb67818a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.378383
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 0aa3180ff786edd43a05d95cb67818a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2014565
+      value: -4.21
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 0aa3180ff786edd43a05d95cb67818a1, type: 3}
       propertyPath: m_LocalPosition.z
