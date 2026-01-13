@@ -7,6 +7,8 @@ TagManager:
   - canDamagePlayer
   - canDamageEnemy
   - canHealPlayer
+  - withinCamWorldY
+  - withinCamWorldX
   layers:
   - Default
   - TransparentFX
