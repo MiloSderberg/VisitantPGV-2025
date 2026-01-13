@@ -9,6 +9,9 @@ using static UnityEditor.PlayerSettings;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    SpriteRenderer sr;
+    Vector3 playerHalfSize;
+    Vector2 pos;
     bool isCounting = false;
     Collider2D playerCollider;
     public LayerMask groundLayerMask;
@@ -44,6 +47,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        playerHalfSize = sr.bounds.extents;
         audioSource = GetComponent<AudioSource>();
         playerCollider = GetComponent<Collider2D>();
         cam = Camera.main;
@@ -58,6 +63,9 @@ public class Player : MonoBehaviour
         float camX = cam.transform.position.x;
         float camY = cam.transform.position.y;
         float camZ = cam.transform.position.z;
+        float playerX = transform.position.x;
+        float playerY = transform.position.y;
+        float playerZ = transform.position.z;
         // Movement
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -82,7 +90,7 @@ public class Player : MonoBehaviour
         {
             direction.y = rb.linearVelocity.y;
         }
-        if (Input.GetKeyDown(dashButton) && dashTimer <= 0)
+        if (Input.GetKey(dashButton) && dashTimer <= 0)
         {
             float camx = cam.ScreenToWorldPoint(Input.mousePosition).x;
             float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
@@ -93,7 +101,8 @@ public class Player : MonoBehaviour
             float rad = snappedAngle * Mathf.Deg2Rad;
             Vector2 snappedDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
-            Vector2 pos = transform.position;
+            if (snappedDirection.x > 0) pos = new Vector3((playerX + (playerHalfSize.x * 2)), playerY, playerZ);
+            if (snappedDirection.x < 0) pos = new Vector3((playerX - (playerHalfSize.x * 2)), playerY, playerZ);
             spawnedDash = Instantiate(dashPrefab, pos, transform.rotation);
             Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
             rbD.linearVelocity = snappedDirection * dashLength;
