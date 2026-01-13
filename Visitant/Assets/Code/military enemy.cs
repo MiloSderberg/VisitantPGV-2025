@@ -8,6 +8,9 @@ public class militaryenemy : MonoBehaviour
     public GameObject player;
     public GameObject projectile;
     float idleTime = 4;
+    float shotTime = 0.5f;
+    float coolDownTime = 2;
+    bool eyesOnTarget = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,19 +22,89 @@ public class militaryenemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocityX = 2;
+        if (eyesOnTarget == true)
+        {
+            rb.linearVelocityX = 0;
+            coolDownTime -= Time.deltaTime;
+            if (coolDownTime <= 0)
+            {
+                coolDownTime = 2;
+            }
+            if (coolDownTime <= 1)
+            {
+                animator.Play("idle");
+            }
+            if (coolDownTime > 1)
+            {
+                animator.Play("shooting");
+                shotTime -= Time.deltaTime;
+                if (shotTime <= 0)
+                {
+                    if (sr.flipX == true)
+                    {
+                        Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), Quaternion.identity);
+                    }
+                    shotTime = 0.5f;
+                }
+            }
+        }
+        else if (eyesOnTarget == false)
+        {
+            idleTime -= Time.deltaTime;
+            if (idleTime <= 0)
+            {
+                sr.flipX = false;
+                animator.Play("idle");
+                idleTime = 4f;
+            }
+            else if (idleTime <= 0.5)
+            {
+                animator.Play("idle");
+            }
+            else if (idleTime <= 1.5)
+            {
+                animator.Play("walk");
+                rb.linearVelocityX = -2;
+            }
+            else if (idleTime <= 2)
+            {
+                sr.flipX = true;
+                animator.Play("idle");
+            }
+            else if (idleTime <= 2.5)
+            {
+                animator.Play("idle");
+            }
+            else if (idleTime <= 3.5)
+            {
+                animator.Play("walk");
+                rb.linearVelocityX = 2;
+            }
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (player.transform.position.x < transform.position.x)
+        if (collision.CompareTag("Player"))
         {
-            sr.flipX = true;
+            if (sr.flipX == true && player.transform.position.x < transform.position.x)
+            {
+                eyesOnTarget = true;
+            }
+            else if (sr.flipX == false && player.transform.position.x > transform.position.x)
+            {
+                eyesOnTarget = true;
+            }
         }
-        else
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            sr.flipX = false;
+            eyesOnTarget = false;
         }
-        animator.SetFloat("state", 3);
-        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }
