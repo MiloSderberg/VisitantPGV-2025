@@ -313,12 +313,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 8443855863090885763}
     m_Modifications:
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06262779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4678593763989852746, guid: e5f27363fe8a78e4db1bf808582c31c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1448,7 +1456,7 @@ GameObject:
   - component: {fileID: 1514305810}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2288,6 +2296,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 210222396}
+    - target: {fileID: 3356144886392605312, guid: af3a572e31099e2468ce2306a3b9a912, type: 3}
+      propertyPath: m_TagString
+      value: canDamagePlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 3882379134277150951, guid: af3a572e31099e2468ce2306a3b9a912, type: 3}
       propertyPath: m_Size.x
       value: 20
@@ -2335,6 +2347,10 @@ PrefabInstance:
     - target: {fileID: 8940530473033248879, guid: af3a572e31099e2468ce2306a3b9a912, type: 3}
       propertyPath: m_Name
       value: military guypv
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940530473033248879, guid: af3a572e31099e2468ce2306a3b9a912, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
