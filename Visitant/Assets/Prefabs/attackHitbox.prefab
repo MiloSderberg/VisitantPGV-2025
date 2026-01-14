@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4032648613686353859}
   - component: {fileID: 40227961027317764}
   - component: {fileID: 8650567045454142569}
+  - component: {fileID: 328036824775657285}
   m_Layer: 0
   m_Name: attackHitbox
   m_TagString: canDamagePlayer
@@ -172,3 +173,16 @@ PolygonCollider2D:
       - {x: 0.29296875, y: 0.40234375}
       - {x: 0.15234375, y: 0.47265625}
   m_UseDelaunayMesh: 0
+--- !u!114 &328036824775657285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907643884730729812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6723a428b9b1afa46b726b7209662fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KillAfterX
+  TimeToDeath: 0.3

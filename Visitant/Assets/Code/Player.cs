@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     Vector2 direction;
     AudioSource audioSource;
     bool canWarp = true;
+    bool canWarpDash = true;
     bool moving = false;
     bool hasJumpedTwize = false;
     Camera cam;
@@ -88,6 +89,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(dashButton) && dashTimer <= 0)
         {
+            canWarpDash = false;
             float camx = cam.ScreenToWorldPoint(Input.mousePosition).x;
             float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
             Vector3 cam2 = new Vector3(camx, camy, 0);
@@ -113,6 +115,7 @@ public class Player : MonoBehaviour
         {
             transform.position = spawnedDash.transform.position;
             Destroy(spawnedDash);
+            canWarpDash = true;
             isCounting = false;
         }
 
@@ -122,7 +125,7 @@ public class Player : MonoBehaviour
         if (isGrounded() == true) hasJumpedTwize = false;
 
         // Dimension warper
-        if (Input.GetKeyDown(KeyCode.E) && canWarp == true)
+        if (Input.GetKeyDown(KeyCode.E) && canWarp == true && canWarpDash == true)
         {
             Vector2 dimPosition = transform.position;
             if (dimPosition.x > 0)
@@ -142,7 +145,6 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-        print(canWarp);
     }
     private void FixedUpdate()
     {
