@@ -10,6 +10,7 @@ TagManager:
   - withinCamWorldY
   - withinCamWorldX
   - noWarpZone
+  - wall
   layers:
   - Default
   - TransparentFX
