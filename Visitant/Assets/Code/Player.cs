@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
         if (isGrounded() == true) hasJumpedTwize = false;
 
         // Dimension warper
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && canWarp == true)
         {
             Vector2 dimPosition = transform.position;
             if (dimPosition.x > 0)
@@ -186,7 +186,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = true;
         if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = true;
-        if (collision.CompareTag("canWarp")) canWarp = false;
+        if (collision.CompareTag("noWarpZone")) canWarp = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
