@@ -7,25 +7,46 @@ public class EnemyMover : MonoBehaviour
     bool idle = true;
     public GameObject player;
     Rigidbody2D rb;
+    SpriteRenderer sr;
     Animator am;
     public float speed;
+    bool attacking = false;
+    float timer;
+    float attackFor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         am = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (idle == true)
+        if (attacking == false)
         {
-            if (am != null) am.Play("idle");
+            if (idle == true)
+            {
+                if (am != null) am.Play("idle");
+            }
+            else
+            {
+                if (am != null) am.Play("walk");
+            }
         }
         else
         {
-            if (am != null) am.Play("walking");
+            if (timer > 0)
+            {
+                if (attackFor > 0)
+                {
+                    if (am != null) am.Play("attack");
+                    attackFor -= Time.deltaTime;
+                }
+                timer -= Time.deltaTime;
+            }
         }
+        if (attackFor <= 0) attacking = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -38,6 +59,8 @@ public class EnemyMover : MonoBehaviour
             float rad = snappedAngle * Mathf.Deg2Rad;
             Vector2 snappedDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
+            if (snappedDirection.x < 0) sr.flipX = true;
+            else sr.flipX = false;
             rb.linearVelocityX = snappedDirection.x * speed;
             idle = false;
         }
@@ -49,5 +72,12 @@ public class EnemyMover : MonoBehaviour
         {
             idle = true;
         }
+    }
+
+    public void Attack()
+    {
+        attacking = true;
+        timer = 1.5f;
+        attackFor = 0.25f;
     }
 }
