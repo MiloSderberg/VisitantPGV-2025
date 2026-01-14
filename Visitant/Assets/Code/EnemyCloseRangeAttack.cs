@@ -53,7 +53,8 @@ public class EnemyCloseRangeAttack : MonoBehaviour
             {
                 attack = Instantiate(damageHitbox, pos, transform.rotation);
                 stayTimer = stayFor;
-                if (am != null) am.Play("Attack");
+                EnemyMover enemyMover = GetComponentInParent<EnemyMover>();
+                enemyMover.Attack();
                 timer = coolDown;
             }
         }
