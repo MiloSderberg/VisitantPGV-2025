@@ -5,7 +5,7 @@ public class militaryenemy : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animator;
-    public GameObject player;
+    GameObject player;
     public GameObject projectile;
     float idleTime = 4;
     float shotTime = 0.5f;
@@ -17,6 +17,7 @@ public class militaryenemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
