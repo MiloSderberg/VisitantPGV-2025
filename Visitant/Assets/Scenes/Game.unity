@@ -20978,7 +20978,9 @@ Transform:
   m_LocalPosition: {x: 155, y: 3.35, z: 0}
   m_LocalScale: {x: 30, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1876496156}
+  - {fileID: 1385064288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954961308
@@ -22396,12 +22398,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385064284}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -129, y: -30.81, z: 0}
-  m_LocalScale: {x: 14, y: 2, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.466667, y: -17.08, z: 0}
+  m_LocalScale: {x: 0.4666667, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 934383001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404488807
 GameObject:
@@ -41531,12 +41533,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876496152}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143, y: -54.7, z: 0}
-  m_LocalScale: {x: 10, y: 2, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.40000004, y: -29.025, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 934383001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907805088
 GameObject:
@@ -41844,6 +41846,14 @@ PrefabInstance:
     - target: {fileID: 5218280444333936150, guid: e24004d8a3d69e64f9e16684cf4739ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569840672898029221, guid: e24004d8a3d69e64f9e16684cf4739ba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569840672898029221, guid: e24004d8a3d69e64f9e16684cf4739ba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42258,8 +42268,6 @@ SceneRoots:
   - {fileID: 992786106}
   - {fileID: 61468695}
   - {fileID: 934383001}
-  - {fileID: 1876496156}
-  - {fileID: 1385064288}
   - {fileID: 1455035752}
   - {fileID: 2032170369}
   - {fileID: 1948591221}
