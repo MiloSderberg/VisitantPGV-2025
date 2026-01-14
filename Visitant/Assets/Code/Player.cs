@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayerMask;
     Vector2 direction;
     AudioSource audioSource;
+    bool canWarp = true;
     bool moving = false;
     bool hasJumpedTwize = false;
     Camera cam;
@@ -185,12 +186,14 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = true;
         if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = true;
+        if (collision.CompareTag("canWarp")) canWarp = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = false;
         if (collision.CompareTag("withinCamWorldY")) withinCamWorldY = false;
+        if (collision.CompareTag("noWarpZone")) canWarp = true;
     }
 
     // Teacher made code, I just barley know how it works.
