@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff68f9dc2104c3d45a6f6e8dfe9ccad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::militaryenemy
-  player: {fileID: 0}
   projectile: {fileID: 7052937472394667103, guid: 8eb220a8612d9a24e96b45a283edb48e, type: 3}
 --- !u!61 &8333169975052523498
 BoxCollider2D:
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyhealthbar
   healthbar: {fileID: 8344797367382172881}
-  health: 100
+  health: 200
 --- !u!4 &5218280444333936150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: e9efc92ee65cf1f4ea83f53bd7b4b699, type: 3}
