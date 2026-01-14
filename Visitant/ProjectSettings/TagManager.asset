@@ -9,6 +9,7 @@ TagManager:
   - canHealPlayer
   - withinCamWorldY
   - withinCamWorldX
+  - noWarpZone
   layers:
   - Default
   - TransparentFX
