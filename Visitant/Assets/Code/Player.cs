@@ -1,10 +1,5 @@
-using System.Threading;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour
 {
@@ -135,10 +130,10 @@ public class Player : MonoBehaviour
                 dimPosition.x = dimPosition.x - mapWidth;
                 camX = camX - mapWidth;
             }
-            else 
-            { 
-            dimPosition.x = dimPosition.x + mapWidth;
-            camX = camX + mapWidth;
+            else
+            {
+                dimPosition.x = dimPosition.x + mapWidth;
+                camX = camX + mapWidth;
             }
             transform.position = dimPosition;
             cam.transform.position = new Vector3(camX, camY, camZ);
@@ -168,14 +163,11 @@ public class Player : MonoBehaviour
     // Health
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("canHealPlayer"))
+        if (collision.CompareTag("canHealPlayer") && Input.GetKey(KeyCode.Q) && health < 100)
         {
-            if (health < 100)
-            {
-                health += 1f;
-                healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x + 0.02f, healthBar.transform.localScale.y);
-                healthBar.transform.position = new Vector3(healthBar.transform.position.x + 0.02f, healthBar.transform.position.y, healthBar.transform.position.z);
-            }
+            health += 1f;
+            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x + 0.02f, healthBar.transform.localScale.y);
+            healthBar.transform.position = new Vector3(healthBar.transform.position.x + 0.02f, healthBar.transform.position.y, healthBar.transform.position.z);
         }
         if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {
