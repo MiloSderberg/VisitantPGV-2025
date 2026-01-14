@@ -10,7 +10,7 @@ public class militaryprojectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        rb.linearVelocity = (player.transform.position - transform.position).normalized * 3;
+        rb.linearVelocity = (player.transform.position - transform.position).normalized * 5;
     }
 
     // Update is called once per frame
