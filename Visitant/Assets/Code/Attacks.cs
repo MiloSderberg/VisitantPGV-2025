@@ -30,7 +30,7 @@ public class Attacks : MonoBehaviour
         float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
         Vector3 cam2 = new Vector3(camx, camy, 0);
         direction = (cam2 - transform.position).normalized;
-        Vector2 snappedDirection = Snap16Direction(direction);
+        Vector2 snappedDirection = Snap32Direction(direction);
         transform.up = snappedDirection;
 
         // Gun code 
@@ -55,13 +55,13 @@ public class Attacks : MonoBehaviour
         }
     }
 
-    Vector2 Snap16Direction(Vector2 direction)
+    Vector2 Snap32Direction(Vector2 direction)
     {
         // Convert direction to angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Snap angle to nearest 22.5°
-        float snappedAngle = Mathf.Round(angle / 22.5f) * 22.5f;
+        // Snap angle to nearest 11.25°
+        float snappedAngle = Mathf.Round(angle / 11.25f) * 11.25f;
 
         // Convert back to vector3
         float rad = snappedAngle * Mathf.Deg2Rad;
