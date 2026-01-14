@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::damageamount
-  damage: 5
+  damage: 20
 --- !u!60 &8650567045454142569
 PolygonCollider2D:
   m_ObjectHideFlags: 0
