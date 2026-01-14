@@ -147,6 +147,7 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        print(canWarp);
     }
     private void FixedUpdate()
     {
