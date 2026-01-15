@@ -5,7 +5,7 @@ public class EnemyMover : MonoBehaviour
 {
     Vector2 direction;
     bool idle = true;
-    public GameObject player;
+    GameObject player;
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator am;
@@ -19,6 +19,7 @@ public class EnemyMover : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         am = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()
