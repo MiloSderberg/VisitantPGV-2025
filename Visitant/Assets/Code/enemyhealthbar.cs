@@ -5,6 +5,8 @@ public class enemyhealthbar : MonoBehaviour
 {
     //To set up the healthbar, first drag in the PlayerHealthbar prefab and then drag in "RemainingHealth" into the field of "Healthbar"
     public GameObject healthbar;
+    public GameObject deathObject;
+    public GameObject healingItem;
     public float health = 100;
     float f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +20,15 @@ public class enemyhealthbar : MonoBehaviour
     {
         if (health <= 0)
         {
+            Vector3 pos = transform.position;
+            if (deathObject != null)
+            {
+                GameObject DeathObject = Instantiate(deathObject, pos, transform.rotation);
+            }
+            if (healingItem != null)
+            {
+                GameObject Healing = Instantiate(healingItem, pos, transform.rotation);
+            }
             Destroy(gameObject);
         }
     }

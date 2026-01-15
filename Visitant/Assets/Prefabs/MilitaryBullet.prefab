@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MilitaryBullet
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 56535970b6d742a46b3910b6c9fc0a62, type: 3}
+      propertyPath: m_TagString
+      value: canDamagePlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 56535970b6d742a46b3910b6c9fc0a62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 120.03

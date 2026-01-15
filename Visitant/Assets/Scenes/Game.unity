@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyhealthbar
   healthbar: {fileID: 2136562080}
+  deathObject: {fileID: 0}
+  healingItem: {fileID: 5475535197107616894, guid: 38497aa5c876c5443817962c56b0c326, type: 3}
   health: 100
 --- !u!1 &156408407
 GameObject:
@@ -40985,8 +40987,8 @@ Transform:
   m_GameObject: {fileID: 1297435480}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: -4.998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 11.02, y: -4.998, z: 0}
+  m_LocalScale: {x: 0.955, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455035752}
