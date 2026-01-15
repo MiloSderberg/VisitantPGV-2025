@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator am;
     Vector3 playerHalfSize;
     Vector2 pos;
     bool isCounting = false;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     public AudioClip hurtSound;
     float health = 100;
-    public float invincibilityTime;
+    float invincibilityTime;
     // Dash
     public KeyCode dashButton;
     public float dashLength;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        am = GetComponent<Animator>();
         playerHalfSize = sr.bounds.extents;
         audioSource = GetComponent<AudioSource>();
         playerCollider = GetComponent<Collider2D>();
@@ -64,22 +66,32 @@ public class Player : MonoBehaviour
         float playerY = transform.position.y;
         float playerZ = transform.position.z;
         // Movement
+        if (moving == false)
+        {
+            am.Play("IDLE");
+        }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            sr.flipX = false;
+            am.Play("WALK");
             if (direction.x < speedLimit) direction.x += speed;
             moving = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            sr.flipX = true;
+            am.Play("WALK");
             if (direction.x > -speedLimit) direction.x -= speed;
             moving = true;
         }
         if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) && isGrounded())
         {
+            am.Play("JUMP");
             direction.y = jumpPower;
         }
         else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded() != true && hasJumpedTwize == false)
         {
+            am.Play("JUMP");
             direction.y = jumpPower;
             hasJumpedTwize = true;
         }
@@ -89,6 +101,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(dashButton) && dashTimer <= 0)
         {
+            am.Play("DASH");
             canWarpDash = false;
             float camx = cam.ScreenToWorldPoint(Input.mousePosition).x;
             float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
