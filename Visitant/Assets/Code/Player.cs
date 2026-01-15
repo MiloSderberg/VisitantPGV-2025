@@ -8,9 +8,11 @@ public class Player : MonoBehaviour
     Animator am;
     Vector3 playerHalfSize;
     Vector2 pos;
+    float idleTimer;
     bool isCounting = false;
     Collider2D playerCollider;
     public LayerMask groundLayerMask;
+    public GameObject tutorial;
     Vector2 direction;
     AudioSource audioSource;
     bool canWarp = true;
@@ -69,7 +71,11 @@ public class Player : MonoBehaviour
         if (rb.linearVelocity == new Vector2(0, 0))
         {
             am.Play("IDLE");
+            idleTimer += Time.deltaTime;
         }
+        else idleTimer = 0;
+        if (idleTimer > 5) tutorial.SetActive(true);
+        else tutorial.SetActive(false);
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             sr.flipX = false;
@@ -194,8 +200,8 @@ public class Player : MonoBehaviour
         {
             float damage = collision.GetComponent<damageamount>().damage;
             health -= damage;
-            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - damage / 50, healthBar.transform.localScale.y);
-            healthBar.transform.position = new Vector3(healthBar.transform.position.x - damage / 50, healthBar.transform.position.y, healthBar.transform.position.z);
+            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - damage / 25, healthBar.transform.localScale.y);
+            healthBar.transform.position = new Vector3(healthBar.transform.position.x - damage / 25, healthBar.transform.position.y, healthBar.transform.position.z);
             invincibilityTime = 0.5f;
         }
         if (collision.CompareTag("withinCamWorldX")) withinCamWorldX = true;
