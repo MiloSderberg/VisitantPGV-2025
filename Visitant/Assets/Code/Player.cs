@@ -66,21 +66,27 @@ public class Player : MonoBehaviour
         float playerY = transform.position.y;
         float playerZ = transform.position.z;
         // Movement
-        if (moving == false)
+        if (rb.linearVelocity == new Vector2(0, 0))
         {
             am.Play("IDLE");
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             sr.flipX = false;
-            am.Play("WALK");
+            if (isGrounded() == true)
+            {
+                am.Play("WALK");
+            }
             if (direction.x < speedLimit) direction.x += speed;
             moving = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             sr.flipX = true;
-            am.Play("WALK");
+            if (isGrounded() == true)
+            {
+                am.Play("WALK");
+            }
             if (direction.x > -speedLimit) direction.x -= speed;
             moving = true;
         }
