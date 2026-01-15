@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    SpriteRenderer sr2;
     Animator am;
     Vector3 playerHalfSize;
     Vector2 pos;
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        sr2 = dashPrefab.GetComponent<SpriteRenderer>();
         am = GetComponent<Animator>();
         playerHalfSize = sr.bounds.extents;
         audioSource = GetComponent<AudioSource>();
@@ -118,12 +120,14 @@ public class Player : MonoBehaviour
             pos = transform.position;
             if (sr.flipX == false)
             {
+                sr2.flipX = true;
                 spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, 180, 0));
                 Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
                 rbD.linearVelocityX = 1 * dashLength;
             }
             else
             {
+                sr2.flipX = false;
                 spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, -180, 0));
                 Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
                 rbD.linearVelocityX = -1 * dashLength;
