@@ -12,10 +12,6 @@ public class Attacks : MonoBehaviour
     public float gunCoolDown;
     float gunTimer = 0;
 
-    public GameObject swordPrefab;
-    public float swordCoolDown;
-    float swordTimer = 0;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,14 +40,6 @@ public class Attacks : MonoBehaviour
             rb.linearVelocity = snappedDirection * bulletVelocity;
 
             gunTimer = gunCoolDown;
-        }
-
-        // Sword code
-        swordTimer -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && swordTimer <= 0)
-        {
-
-            swordTimer = swordCoolDown;
         }
     }
 

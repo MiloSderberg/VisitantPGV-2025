@@ -11,7 +11,7 @@ public class EnemyCloseRangeAttack : MonoBehaviour
     float stayTimer;
     Animator am;
     public GameObject damageHitbox;
-    public GameObject player;
+    GameObject player;
     GameObject attack;
 
     Vector3 pos;
@@ -23,6 +23,7 @@ public class EnemyCloseRangeAttack : MonoBehaviour
     void Start()
     {
         am = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
