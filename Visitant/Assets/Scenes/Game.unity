@@ -3378,7 +3378,7 @@ Transform:
   m_GameObject: {fileID: 431968655}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3399,6 +3399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Attacks
   fireButton: 323
   bulletPrefab: {fileID: 4581672786560750430, guid: 60e1504b7d21a6942b7feaf8bf3abd1f, type: 3}
+  spawnAt: {fileID: 1184427359}
   bulletVelocity: 50
   gunCoolDown: 1
 --- !u!212 &431968658
@@ -40311,6 +40312,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1184427359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: a49eea21009aafc46b5bb88dc5945b2a, type: 3}
+  m_PrefabInstance: {fileID: 2046216918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1190099717
 GameObject:
   m_ObjectHideFlags: 0
@@ -44334,11 +44340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a49eea21009aafc46b5bb88dc5945b2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a49eea21009aafc46b5bb88dc5945b2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a49eea21009aafc46b5bb88dc5945b2a, type: 3}
       propertyPath: m_LocalPosition.z
