@@ -297,11 +297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e2cfda60c6752a44dbc38cc94f20afcc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e2cfda60c6752a44dbc38cc94f20afcc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e2cfda60c6752a44dbc38cc94f20afcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,8 +625,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4581672786560750430, guid: 60e1504b7d21a6942b7feaf8bf3abd1f, type: 3}
   bulletVelocity: 50
   gunCoolDown: 1
-  swordPrefab: {fileID: 0}
-  swordCoolDown: 0
 --- !u!212 &464423072
 SpriteRenderer:
   m_ObjectHideFlags: 0

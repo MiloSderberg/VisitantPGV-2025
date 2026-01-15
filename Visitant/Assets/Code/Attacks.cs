@@ -8,6 +8,7 @@ public class Attacks : MonoBehaviour
 
     public KeyCode fireButton;
     public GameObject bulletPrefab;
+    public GameObject spawnAt;
     public float bulletVelocity;
     public float gunCoolDown;
     float gunTimer = 0;
@@ -33,7 +34,7 @@ public class Attacks : MonoBehaviour
         gunTimer -= Time.deltaTime;
         if ((fireButton == KeyCode.None || Input.GetKey(fireButton)) && gunTimer <= 0)
         {
-            Vector2 pos = transform.position;
+            Vector2 pos = spawnAt.transform.position;
             GameObject spawnedBullet = Instantiate(bulletPrefab, pos, transform.rotation);
 
             Rigidbody2D rb = spawnedBullet.GetComponent<Rigidbody2D>();
