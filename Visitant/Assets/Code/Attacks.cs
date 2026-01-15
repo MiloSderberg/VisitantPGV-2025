@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Attacks : MonoBehaviour
 {
@@ -12,16 +11,27 @@ public class Attacks : MonoBehaviour
     public float bulletVelocity;
     public float gunCoolDown;
     float gunTimer = 0;
+    SpriteRenderer sr;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
+        sr = spawnAt.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float currentZ = transform.eulerAngles.z;
+        if (currentZ > 180)
+        {
+            sr.flipY = false;
+        }
+        else
+        {
+            sr.flipY = true;
+        }
         // Direction calculator
         float camx = cam.ScreenToWorldPoint(Input.mousePosition).x;
         float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
