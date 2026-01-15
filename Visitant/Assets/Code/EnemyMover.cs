@@ -27,11 +27,11 @@ public class EnemyMover : MonoBehaviour
         {
             if (idle == true)
             {
-                if (am != null) am.Play("idle");
+                if (am != null) am.Play("IDLE");
             }
             else
             {
-                if (am != null) am.Play("walk");
+                if (am != null) am.Play("WALK");
             }
         }
         else
@@ -40,7 +40,7 @@ public class EnemyMover : MonoBehaviour
             {
                 if (attackFor > 0)
                 {
-                    if (am != null) am.Play("attack");
+                    if (am != null) am.Play("ATTACK");
                     attackFor -= Time.deltaTime;
                 }
                 timer -= Time.deltaTime;
