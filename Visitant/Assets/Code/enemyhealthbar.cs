@@ -7,6 +7,7 @@ public class enemyhealthbar : MonoBehaviour
     public GameObject healthbar;
     public GameObject deathObject;
     public GameObject healingItem;
+    public GameObject mainObject;
     public float health = 100;
     float f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,7 +30,7 @@ public class enemyhealthbar : MonoBehaviour
             {
                 GameObject Healing = Instantiate(healingItem, pos, transform.rotation);
             }
-            Destroy(gameObject);
+            Destroy(mainObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
