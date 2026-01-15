@@ -109,20 +109,20 @@ public class Player : MonoBehaviour
         {
             am.Play("DASH");
             canWarpDash = false;
-            float camx = cam.ScreenToWorldPoint(Input.mousePosition).x;
-            float camy = cam.ScreenToWorldPoint(Input.mousePosition).y;
-            Vector3 cam2 = new Vector3(camx, camy, 0);
-            direction = (cam2 - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            float snappedAngle = Mathf.Round(angle / 180f) * 180f;
-            float rad = snappedAngle * Mathf.Deg2Rad;
-            Vector2 snappedDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
+            pos = transform.position;
+            if (sr.flipX == false)
+            {
+                spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, 180, 0));
+                Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
+                rbD.linearVelocityX = 1 * dashLength;
+            }
+            else
+            {
+                spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, -180, 0));
+                Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
+                rbD.linearVelocityX = -1 * dashLength;
+            }
 
-            if (snappedDirection.x > 0) pos = new Vector3((playerX + (playerHalfSize.x * 2)), playerY, playerZ);
-            if (snappedDirection.x < 0) pos = new Vector3((playerX - (playerHalfSize.x * 2)), playerY, playerZ);
-            spawnedDash = Instantiate(dashPrefab, pos, transform.rotation);
-            Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
-            rbD.linearVelocity = snappedDirection * dashLength;
             isCounting = true;
             dashTimer2 = dashSpeed;
             dashTimer = dashCooldown;
