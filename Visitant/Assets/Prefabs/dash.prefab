@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5811391567457953884}
   - component: {fileID: 6790060385675302089}
   - component: {fileID: 7694770391523254058}
-  - component: {fileID: 93529641142698698}
+  - component: {fileID: 294274973951299191}
   m_Layer: 0
   m_Name: dash
   m_TagString: Untagged
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &93529641142698698
+--- !u!70 &294274973951299191
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,6 +153,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.03125, y: 0.96875}
-  m_Size: {x: 0.8125, y: 0.9375}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.625, y: 1.1875}
   m_Direction: 0

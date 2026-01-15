@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bbc26948bcc4346bf72c474dcd6faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hurt
-  damage: 10
+  damage: 20
 --- !u!114 &-4934401553664022957
 MonoBehaviour:
   m_ObjectHideFlags: 0

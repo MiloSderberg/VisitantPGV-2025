@@ -7,8 +7,6 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     SpriteRenderer sr2;
     Animator am;
-    Vector3 playerHalfSize;
-    Vector2 pos;
     float idleTimer;
     bool isCounting = false;
     Collider2D playerCollider;
@@ -51,7 +49,6 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr2 = dashPrefab.GetComponent<SpriteRenderer>();
         am = GetComponent<Animator>();
-        playerHalfSize = sr.bounds.extents;
         audioSource = GetComponent<AudioSource>();
         playerCollider = GetComponent<Collider2D>();
         cam = Camera.main;
@@ -76,7 +73,7 @@ public class Player : MonoBehaviour
             idleTimer += Time.deltaTime;
         }
         else idleTimer = 0;
-        if (idleTimer > 5) tutorial.SetActive(true);
+        if (idleTimer > 3.5) tutorial.SetActive(true);
         else tutorial.SetActive(false);
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -117,18 +114,17 @@ public class Player : MonoBehaviour
         {
             am.Play("DASH");
             canWarpDash = false;
-            pos = transform.position;
             if (sr.flipX == false)
             {
                 sr2.flipX = true;
-                spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, 180, 0));
+                spawnedDash = Instantiate(dashPrefab, new Vector3(playerX + 0.31125f, playerY, playerZ), Quaternion.Euler(0, 180, 0));
                 Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
                 rbD.linearVelocityX = 1 * dashLength;
             }
             else
             {
                 sr2.flipX = false;
-                spawnedDash = Instantiate(dashPrefab, pos, Quaternion.Euler(0, -180, 0));
+                spawnedDash = Instantiate(dashPrefab, new Vector3(playerX - 0.31125f, playerY, playerZ), Quaternion.Euler(0, -180, 0));
                 Rigidbody2D rbD = spawnedDash.GetComponent<Rigidbody2D>();
                 rbD.linearVelocityX = -1 * dashLength;
             }
