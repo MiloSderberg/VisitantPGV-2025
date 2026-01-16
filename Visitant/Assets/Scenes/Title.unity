@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 55c2e4d3322400248a2f3c98aca52d42, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 55c2e4d3322400248a2f3c98aca52d42, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 55c2e4d3322400248a2f3c98aca52d42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 55c2e4d3322400248a2f3c98aca52d42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.2
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 55c2e4d3322400248a2f3c98aca52d42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a605b9c84930dd4f8c54855a504e505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  SceneName: Start
+  SceneName: Game
 --- !u!114 &1572904255
 MonoBehaviour:
   m_ObjectHideFlags: 0
