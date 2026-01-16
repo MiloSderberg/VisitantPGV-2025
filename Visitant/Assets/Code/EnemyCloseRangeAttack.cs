@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class EnemyCloseRangeAttack : MonoBehaviour
 {
     public float coolDown;
@@ -13,6 +12,8 @@ public class EnemyCloseRangeAttack : MonoBehaviour
     public GameObject damageHitbox;
     GameObject player;
     GameObject attack;
+    AudioSource AudioSource;
+    public AudioClip attackclip;
 
     Vector3 pos;
     Vector3 snappedDirection;
@@ -24,6 +25,7 @@ public class EnemyCloseRangeAttack : MonoBehaviour
     {
         am = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
+        AudioSource = player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class EnemyCloseRangeAttack : MonoBehaviour
         pos = transform.position;
 
         if (attack != null)
-        { 
+        {
             stayTimer -= Time.deltaTime;
             attack.transform.position = pos + (snappedDirection * range);
             if (stayTimer <= 0) Destroy(attack);
@@ -52,6 +54,7 @@ public class EnemyCloseRangeAttack : MonoBehaviour
         {
             if (timer <= 0)
             {
+                AudioSource.PlayOneShot(attackclip);
                 attack = Instantiate(damageHitbox, pos, transform.rotation);
                 stayTimer = stayFor;
                 EnemyMover enemyMover = GetComponentInParent<EnemyMover>();
