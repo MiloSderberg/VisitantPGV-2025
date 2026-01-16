@@ -143,8 +143,6 @@ public class Player : MonoBehaviour
             canWarpDash = true;
             isCounting = false;
         }
-
-        if (moving != true) direction.x = direction.x * friction;
         rb.linearVelocity = direction;
         moving = false;
         if (isGrounded() == true) hasJumpedTwize = false;
@@ -177,6 +175,10 @@ public class Player : MonoBehaviour
         float camX = cam.transform.position.x;
         float camY = cam.transform.position.y;
         float camZ = cam.transform.position.z;
+
+        if (moving != true) direction.x = direction.x * friction;
+        if (direction.x < 0.1 && direction.x > -0.1) direction.x = 0;
+        print(direction.x);
 
         Vector3 playerPos = transform.position;
         Vector3 cameraPos = cam.transform.position;
