@@ -193,8 +193,8 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("canHealPlayer") && Input.GetKey(KeyCode.Q) && health < 100)
         {
             health += 1f;
-            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x + 0.02f, healthBar.transform.localScale.y);
-            healthBar.transform.position = new Vector3(healthBar.transform.position.x + 0.02f, healthBar.transform.position.y, healthBar.transform.position.z);
+            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x + 0.04f, healthBar.transform.localScale.y);
+            healthBar.transform.position = new Vector3(healthBar.transform.position.x + 0.04f, healthBar.transform.position.y, healthBar.transform.position.z);
         }
         if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {

@@ -43,11 +43,11 @@ public class militaryenemy : MonoBehaviour
                 {
                     if (sr.flipX == true)
                     {
-                        Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), Quaternion.identity);
+                        Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), transform.rotation);
                     }
                     else
                     {
-                        Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), Quaternion.identity);
+                        Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), transform.rotation);
                     }
                     shotTime = 0.5f;
                 }
