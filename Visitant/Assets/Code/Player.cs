@@ -200,6 +200,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("canDamagePlayer") && invincibilityTime <= 0)
         {
+            audioSource.PlayOneShot(hurtSound);
             float damage = collision.GetComponent<damageamount>().damage;
             health -= damage;
             healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - damage / 25, healthBar.transform.localScale.y);
