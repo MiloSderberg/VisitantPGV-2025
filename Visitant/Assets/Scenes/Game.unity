@@ -843,9 +843,9 @@ MonoBehaviour:
   tutorial: {fileID: 1565737192}
   mapWidth: 260
   jumpPower: 15
-  speed: 0.5
+  speed: 0.75
   speedLimit: 10
-  friction: 0.95
+  friction: 0.9
   healthBar: {fileID: 346818073}
   hurtSound: {fileID: 0}
   dashButton: 304
@@ -50941,7 +50941,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.35220122, g: 0.35220122, b: 0.35220122, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
