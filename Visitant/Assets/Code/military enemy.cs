@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class militaryenemy : MonoBehaviour
@@ -25,6 +26,8 @@ public class militaryenemy : MonoBehaviour
     {
         if (eyesOnTarget == true)
         {
+            Vector3 playerPos = player.transform.position;
+            Vector3 direction = (playerPos - transform.position).normalized;
             rb.linearVelocityX = 0;
             coolDownTime -= Time.deltaTime;
             if (coolDownTime <= 0)
@@ -43,11 +46,11 @@ public class militaryenemy : MonoBehaviour
                 {
                     if (sr.flipX == true)
                     {
-                        Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), transform.rotation);
+                        Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), quaternion.Euler(direction));
                     }
                     else
                     {
-                        Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), transform.rotation);
+                        Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), quaternion.Euler(direction));
                     }
                     shotTime = 0.5f;
                 }
