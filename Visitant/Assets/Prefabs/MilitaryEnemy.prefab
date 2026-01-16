@@ -425,8 +425,8 @@ GameObject:
   - component: {fileID: 1687704762913333759}
   - component: {fileID: 3829434529487092947}
   - component: {fileID: 787952090789351195}
-  - component: {fileID: 8333169975052523498}
   - component: {fileID: 511591809389175717}
+  - component: {fileID: 6285665297544958557}
   m_Layer: 0
   m_Name: MilitaryEnemy
   m_TagString: Untagged
@@ -545,8 +545,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::militaryenemy
   projectile: {fileID: 3737987512888674036, guid: 46c319abaae67e448a38bbee8c878247, type: 3}
---- !u!61 &8333169975052523498
-BoxCollider2D:
+--- !u!50 &511591809389175717
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009960900025902707}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &6285665297544958557
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -579,7 +606,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.12587547, y: 1.6762357}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4666667, y: 0}
@@ -589,35 +616,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 24.807095, y: 9.5608835}
-  m_EdgeRadius: 0
---- !u!50 &511591809389175717
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5009960900025902707}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Points:
+    m_Paths:
+    - - {x: 0.3125, y: 1.75}
+      - {x: -0.4375, y: 1.75}
+      - {x: -9.127796, y: 5.661046}
+      - {x: -9.168055, y: -1.4654255}
+      - {x: -0.4375, y: 0}
+      - {x: 9.711624, y: -1.7462187}
+      - {x: 9.643253, y: 5.773512}
+      - {x: 0.5, y: 1.752634}
+      - {x: 0.4375, y: 1.625}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6022808220772086997
 GameObject:
   m_ObjectHideFlags: 0
