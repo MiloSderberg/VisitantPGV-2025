@@ -6,6 +6,7 @@ public class Attacks : MonoBehaviour
     Vector2 direction;
 
     public KeyCode fireButton;
+    AudioSource AS;
     public GameObject bulletPrefab;
     public GameObject spawnAt;
     public float bulletVelocity;
