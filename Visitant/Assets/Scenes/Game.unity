@@ -843,7 +843,7 @@ MonoBehaviour:
   tutorial: {fileID: 1565737192}
   mapWidth: 260
   jumpPower: 15
-  speed: 0.75
+  speed: 0.9
   speedLimit: 10
   friction: 0.9
   healthBar: {fileID: 346818073}
@@ -56019,8 +56019,8 @@ Transform:
   m_GameObject: {fileID: 1415371983}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6666665, y: 7.925, z: 0}
-  m_LocalScale: {x: 0.2, y: 1, z: 1}
+  m_LocalPosition: {x: -3.702, y: 7.925, z: 0}
+  m_LocalScale: {x: 0.13, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 934383001}
