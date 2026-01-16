@@ -7,6 +7,8 @@ public class militaryenemy : MonoBehaviour
     SpriteRenderer sr;
     Animator animator;
     GameObject player;
+    AudioSource audioSource;
+    public AudioClip shot;
     public GameObject projectile;
     float idleTime = 4;
     float shotTime = 0.5f;
@@ -19,6 +21,7 @@ public class militaryenemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
+        audioSource = player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,10 +49,12 @@ public class militaryenemy : MonoBehaviour
                 {
                     if (sr.flipX == true)
                     {
+                        audioSource.PlayOneShot(shot);
                         Instantiate(projectile, new Vector2(transform.position.x - 0.5f, transform.position.y + 1), quaternion.Euler(direction));
                     }
                     else
                     {
+                        audioSource.PlayOneShot(shot);
                         Instantiate(projectile, new Vector2(transform.position.x + 0.5f, transform.position.y + 1), quaternion.Euler(direction));
                     }
                     shotTime = 0.5f;

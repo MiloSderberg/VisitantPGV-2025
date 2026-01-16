@@ -7,6 +7,7 @@ public class Attacks : MonoBehaviour
 
     public KeyCode fireButton;
     AudioSource AS;
+    public AudioClip shot;
     public GameObject bulletPrefab;
     public GameObject spawnAt;
     public float bulletVelocity;
@@ -19,6 +20,7 @@ public class Attacks : MonoBehaviour
     {
         cam = Camera.main;
         sr = spawnAt.GetComponent<SpriteRenderer>();
+        AS = cam.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class Attacks : MonoBehaviour
         gunTimer -= Time.deltaTime;
         if ((fireButton == KeyCode.None || Input.GetKey(fireButton)) && gunTimer <= 0)
         {
+            AS.PlayOneShot(shot);
             Vector2 pos = spawnAt.transform.position;
             GameObject spawnedBullet = Instantiate(bulletPrefab, pos, transform.rotation);
 
