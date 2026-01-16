@@ -843,7 +843,7 @@ MonoBehaviour:
   tutorial: {fileID: 1565737192}
   mapWidth: 260
   jumpPower: 15
-  speed: 0.9
+  speed: 0.95
   speedLimit: 10
   friction: 0.9
   healthBar: {fileID: 346818073}
@@ -3094,7 +3094,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -71.5, y: 17, z: 0}
-  m_LocalScale: {x: 5, y: 115, z: 1}
+  m_LocalScale: {x: 1, y: 115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992786106}
@@ -5095,7 +5095,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -268.445, y: -34.3, z: 0}
-  m_LocalScale: {x: -100, y: -23.96209, z: 1}
+  m_LocalScale: {x: -125, y: -23.96209, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992786106}
@@ -57160,7 +57160,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -331.4, y: 17, z: 0}
-  m_LocalScale: {x: 5, y: 115, z: 1}
+  m_LocalScale: {x: 1, y: 115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992786106}
@@ -58365,7 +58365,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.199997, y: -34.3, z: 0}
-  m_LocalScale: {x: -100, y: -23.96209, z: 1}
+  m_LocalScale: {x: -125, y: -23.96209, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992786106}
