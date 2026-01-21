@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
         if (isGrounded() == true) hasJumpedTwize = false;
 
         // Dimension warper
-        if (Input.GetKeyDown(KeyCode.E) && canWarp == true && canWarpDash == true)
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse1) && canWarp == true && canWarpDash == true)
         {
             Vector2 dimPosition = transform.position;
             if (dimPosition.x > 0)
