@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,6 +43,9 @@ public class Player : MonoBehaviour
     public GameObject dashPrefab;
     GameObject spawnedDash;
 
+    float sTimer;
+    public TextMeshProUGUI speedrunTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         dashTimer -= Time.deltaTime;
+        sTimer += Time.deltaTime;
         invincibilityTime -= Time.deltaTime;
         float camX = cam.transform.position.x;
         float camY = cam.transform.position.y;
@@ -148,7 +153,7 @@ public class Player : MonoBehaviour
         if (isGrounded() == true) hasJumpedTwize = false;
 
         // Dimension warper
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse1) && canWarp == true && canWarpDash == true)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse1)) && canWarp == true && canWarpDash == true)
         {
             Vector2 dimPosition = transform.position;
             if (dimPosition.x > 0)
@@ -164,6 +169,13 @@ public class Player : MonoBehaviour
             transform.position = dimPosition;
             cam.transform.position = new Vector3(camX, camY, camZ);
         }
+        if (Input.GetKey(KeyCode.T))
+        {
+            speedrunTimer.transform.position = new Vector3(0,0,0);
+            int toSeconds = ((int)sTimer);
+            speedrunTimer.text = toSeconds.ToString();
+        }
+        else speedrunTimer.transform.position = new Vector3(10000,10000,0);
         if (health <= 0)
         {
             SceneManager.LoadScene("GameOver");
